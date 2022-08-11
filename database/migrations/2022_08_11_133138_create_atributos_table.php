@@ -15,6 +15,12 @@ class CreateAtributosTable extends Migration
     {
         Schema::create('atributos', function (Blueprint $table) {
             $table->id();
+            $table->integer('forca');
+            $table->integer('destreza');
+            $table->integer('constituicao');
+            $table->integer('inteligencia');
+            $table->integer('sabedoria');
+            $table->integer('carisma');
             $table->timestamps();
         });
     }
