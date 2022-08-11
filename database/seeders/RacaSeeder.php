@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
 class RacaSeeder extends Seeder
@@ -13,6 +14,12 @@ class RacaSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('racas')->insert([
+            'nome' => 'humano',
+        ]);
+        DB::table('racas')->insert([
+            'nome' => 'elfo',
+            'visao_escuro' => '18',
+        ]);
     }
 }
