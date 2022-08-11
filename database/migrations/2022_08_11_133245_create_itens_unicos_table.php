@@ -15,6 +15,10 @@ class CreateItensUnicosTable extends Migration
     {
         Schema::create('itens_unicos', function (Blueprint $table) {
             $table->id();
+            $table->string('nome');
+            $table->string('raridade');
+            $table->integer('peso');
+            $table->foreignId('personagem_id')->constrained('personagens')->nulllable();
             $table->timestamps();
         });
     }
