@@ -30,8 +30,124 @@ class Personagem extends Model
      * @var array
      */
     protected $appends = [
-
+        'classe',
+        'raca',
+        'atributo',
+        'itemUnico',
+        'campanha',
     ];
+
+/************************************************************************************************/
+
+    /**
+     * Get the jogo's attribute.
+     *
+     * @return string
+     */
+    public function getClasseAttribute() {
+        return $this->classeRelationship;
+    }
+
+    /**
+     * Set the jogo's id.
+     *
+     * @param  int  $value
+     * @return void
+     */
+    public function setClasseAttribute($value)
+    {
+        if(isset($value)){
+            $this->attributes['classe_id'] = Classe::where('id', $value)->first()->id;
+        }
+    }
+
+        /**
+     * Get the jogo's attribute.
+     *
+     * @return string
+     */
+    public function getRacaAttribute() {
+        return $this->racaRelationship;
+    }
+
+    /**
+     * Set the jogo's id.
+     *
+     * @param  int  $value
+     * @return void
+     */
+    public function setRacaAttribute($value)
+    {
+        if(isset($value)){
+            $this->attributes['raca_id'] = Raca::where('id', $value)->first()->id;
+        }
+    }
+
+        /**
+     * Get the jogo's attribute.
+     *
+     * @return string
+     */
+    public function getAtributoAttribute() {
+        return $this->atributoRelationship;
+    }
+
+    /**
+     * Set the jogo's id.
+     *
+     * @param  int  $value
+     * @return void
+     */
+    public function setAtributoAttribute($value)
+    {
+        if(isset($value)){
+            $this->attributes['atributo_id'] = Atributo::where('id', $value)->first()->id;
+        }
+    }
+
+        /**
+     * Get the jogo's attribute.
+     *
+     * @return string
+     */
+    public function getItemUnicoAttribute() {
+        return $this->itemUnicoRelationship;
+    }
+
+    /**
+     * Set the jogo's id.
+     *
+     * @param  int  $value
+     * @return void
+     */
+    public function setItemUnicoAttribute($value)
+    {
+        if(isset($value)){
+            $this->attributes['personagem_id'] = ItemUnico::where('id', $value)->first()->id;
+        }
+    }
+
+        /**
+     * Get the jogo's attribute.
+     *
+     * @return string
+     */
+    public function getCampanhaAttribute() {
+        return $this->campanhaRelationship;
+    }
+
+    /**
+     * Set the jogo's id.
+     *
+     * @param  int  $value
+     * @return void
+     */
+    public function setCampanhaAttribute($value)
+    {
+        $this->campanhaRelationship()->sync($value);
+    }
+
+/************************************************************************************************/
 
     public function classeRelationship(){
         return $this->belongsTo(Classe::class,'classe_id');
