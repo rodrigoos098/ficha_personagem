@@ -16,7 +16,7 @@ class CreateRacasTable extends Migration
         Schema::create('racas', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->integer('visao_escuro')->nulllable();
+            $table->integer('visao_escuro')->nullable()->unsigned();
             $table->timestamps();
         });
     }

@@ -16,6 +16,8 @@ class RacaSeeder extends Seeder
     {
         DB::table('racas')->insert([
             'nome' => 'humano',
+            'visao_escuro' => null,
+
         ]);
         DB::table('racas')->insert([
             'nome' => 'elfo',

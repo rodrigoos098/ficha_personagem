@@ -18,7 +18,7 @@ class CreateItensUnicosTable extends Migration
             $table->string('nome');
             $table->string('raridade');
             $table->integer('peso');
-            $table->foreignId('personagem_id')->constrained('personagens')->nulllable();
+            $table->foreignId('personagem_id')->nullable()->references('id')->on('personagens');
             $table->timestamps();
         });
     }

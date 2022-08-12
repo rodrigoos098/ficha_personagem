@@ -23,6 +23,7 @@ class ItemUnicoSeeder extends Seeder
             'nome' => 'escudo de tercio',
             'raridade' => 'lendario',
             'peso' => '10',
+
         ]);
     }
 }

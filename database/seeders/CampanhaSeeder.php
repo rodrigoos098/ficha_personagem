@@ -16,12 +16,12 @@ class CampanhaSeeder extends Seeder
     {
         DB::table('campanhas')->insert([
             'nome' => 'Tirania Draconiana',
-            'data' => '02-03-2022',
+            'data' => '2022-03-02',
         ]);
 
         DB::table('campanhas')->insert([
             'nome' => 'Los Escravos',
-            'data' => '12-03-2022',
+            'data' => '2022-02-03',
         ]);
 
     }
