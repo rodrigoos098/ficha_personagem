@@ -14,12 +14,13 @@ class ItemUnicoSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('itens_unicos')->insert([
+        DB::table('item_unicos')->insert([
             'nome' => 'cajado do vazio',
             'raridade' => 'raro',
             'peso' => '2',
+            'personagem_id' => '1',
         ]);
-        DB::table('itens_unicos')->insert([
+        DB::table('item_unicos')->insert([
             'nome' => 'escudo de tercio',
             'raridade' => 'lendario',
             'peso' => '10',

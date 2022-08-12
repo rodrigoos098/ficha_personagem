@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateItensUnicosTable extends Migration
+class CreatePersonagensHasCampanhasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateItensUnicosTable extends Migration
      */
     public function up()
     {
-        Schema::create('item_unicos', function (Blueprint $table) {
-            $table->id();
-            $table->string('nome');
-            $table->string('raridade');
-            $table->integer('peso');
-            $table->foreignId('personagem_id')->nullable()->references('id')->on('personagens');
+        Schema::create('personagens_has_campanhas', function (Blueprint $table) {
+            $table->foreignId('personagem_id')->constrained('personagens');
+            $table->foreignId('campanha_id')->constrained('campanhas');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateItensUnicosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('item_unicos');
+        Schema::dropIfExists('personagens_has_campanhas');
     }
 }
