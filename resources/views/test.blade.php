@@ -21,6 +21,6 @@
         </style>
     </head>
     <body class="antialiased">
-            essa é a views enois
+            {{$personagens}}
     </body>
 </html>
