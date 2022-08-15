@@ -65,7 +65,6 @@ class PersonagemController extends Controller
         //$item_unicos = $this->item_unicos;
         $campanhas = $this->campanhas;
         return view('personagens.form', compact('classes', 'racas', 'campanhas'));
-
     }
 
     /**
@@ -106,7 +105,11 @@ class PersonagemController extends Controller
      */
     public function show($id)
     {
-        
+        $classes = $this->classes;
+        $racas = $this->racas;
+        //$item_unicos = $this->item_unicos;
+        $campanhas = $this->campanhas;
+        return view('personagens.form', compact('classes', 'racas', 'campanhas'));
     }
 
     /**
