@@ -16,6 +16,8 @@ use App\Http\Controllers\PersonagemController;
 
 Route::get('/test', [ PersonagemController::class, 'test'])->name('personagem.test'); // 'name of function'
 
+Route::get('/index', [ PersonagemController::class, 'index'])->name('personagem.index'); // 'name of function'
+
 Route::get('/', function () {
     return view('welcome');
 });

@@ -27,8 +27,8 @@ class PersonagemController extends Controller
      */
     public function test()
     {
-        //$times = $this->times->all();
-        return view('test');
+        $personagens = $this->personagens->all();
+        return view('personagens', compact('personagens'));
     }
 
 
@@ -39,7 +39,8 @@ class PersonagemController extends Controller
      */
     public function index()
     {
-
+        $personagens = $this->personagens->all();
+        return view('personagens.index', compact('personagens'));
     }
 
     /**
