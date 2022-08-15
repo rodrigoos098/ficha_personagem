@@ -18,6 +18,8 @@ Route::get('/test', [ PersonagemController::class, 'test'])->name('personagem.te
 
 Route::get('/index', [ PersonagemController::class, 'index'])->name('personagem.index'); // 'name of function'
 
+Route::get('/form', [ PersonagemController::class, 'create'])->name('personagem.create'); // 'name of function'
+
 Route::get('/', function () {
     return view('welcome');
 });

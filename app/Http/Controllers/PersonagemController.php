@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Personagem;
+use App\Models\Classe;
+use App\Models\Raca;
+use App\Models\ItemUnico;
+use App\Models\Campanha;
 
 class PersonagemController extends Controller
 {
@@ -17,6 +21,10 @@ class PersonagemController extends Controller
      * @return void
      */
     public function __construct(Personagem $personagens){
+        $this->classes = Classe::all()->pluck('nome', 'id');
+        $this->racas = Raca::all()->pluck('nome', 'id');
+        $this->item_unicos = ItemUnico::all()->pluck('nome', 'id');
+        $this->campanhas = Campanha::all()->pluck('nome', 'id');
         $this->personagens = $personagens;
     }
 
@@ -50,6 +58,12 @@ class PersonagemController extends Controller
      */
     public function create()
     {
+        $classes = $this->classes;
+        $racas = $this->racas;
+        //$item_unicos = $this->item_unicos;
+        $campanhas = $this->campanhas;
+        return view('personagens.form', compact('classes', 'racas', 'campanhas'));
+
 
     }
 
