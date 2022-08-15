@@ -20,6 +20,8 @@ Route::get('/index', [ PersonagemController::class, 'index'])->name('personagem.
 
 Route::get('/form', [ PersonagemController::class, 'create'])->name('personagem.create'); // 'name of function'
 
+Route::post('/form', [ PersonagemController::class, 'store'])->name('personagem.store'); // 'name of function'
+
 Route::get('/', function () {
     return view('welcome');
 });
