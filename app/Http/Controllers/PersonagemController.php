@@ -8,6 +8,7 @@ use App\Models\Classe;
 use App\Models\Raca;
 use App\Models\ItemUnico;
 use App\Models\Campanha;
+use App\Models\Atributo;
 
 class PersonagemController extends Controller
 {
@@ -21,6 +22,7 @@ class PersonagemController extends Controller
      * @return void
      */
     public function __construct(Personagem $personagens){
+        $this->atributos = new Atributo;
         $this->classes = Classe::all()->pluck('nome', 'id');
         $this->racas = Raca::all()->pluck('nome', 'id');
         $this->item_unicos = ItemUnico::all()->pluck('nome', 'id');
@@ -64,7 +66,6 @@ class PersonagemController extends Controller
         $campanhas = $this->campanhas;
         return view('personagens.form', compact('classes', 'racas', 'campanhas'));
 
-
     }
 
     /**
@@ -75,7 +76,26 @@ class PersonagemController extends Controller
      */
     public function store(Request $request)
     {
+        $personagem = $this->personagens->create([
+            'nome' => $request->nome,
+            'idade' => $request->idade,
+            'altura' => $request->altura,
+            'peso' => $request->peso,
+            'classe_id' => $request->classe_id,
+            'raca_id' => $request->raca_id,
+            'atributo_id' => $this->atributos->create([
+                'forca' => $request->forca,
+                'destreza' => $request->destreza,
+                'constituicao' => $request->constituicao,
+                'inteligencia' => $request->inteligencia,
+                'sabedoria' => $request->sabedoria,
+                'carisma' => $request->carisma,
+            ])->id,
 
+        ]);
+        $personagem->campanhas = $request->campanhas;
+
+        return redirect()->route('personagens.index');
     }
 
     /**
@@ -86,7 +106,7 @@ class PersonagemController extends Controller
      */
     public function show($id)
     {
-
+        
     }
 
     /**
