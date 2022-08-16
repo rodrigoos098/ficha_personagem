@@ -14,8 +14,6 @@ use App\Http\Controllers\PersonagemController;
 |
 */
 
-Route::get('/test', [ PersonagemController::class, 'test'])->name('personagem.test'); // 'name of function'
-
 Route::get('/index', [ PersonagemController::class, 'index'])->name('personagem.index'); // 'name of function'
 
 Route::get('/create', [ PersonagemController::class, 'create'])->name('personagem.create'); // 'name of function'
@@ -30,6 +28,4 @@ Route::put('/edit/{id}}', [ PersonagemController::class, 'update'])->name('perso
 
 Route::delete('/destroy/{id}}', [ PersonagemController::class, 'destroy'])->name('personagem.destroy'); // 'name of function'
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ PersonagemController::class, 'index'])->name('personagem.index');
