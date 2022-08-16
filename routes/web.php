@@ -26,6 +26,8 @@ Route::get('/show/{id}', [ PersonagemController::class, 'show'])->name('personag
 
 Route::get('/edit/{id}', [ PersonagemController::class, 'edit'])->name('personagem.edit'); // 'name of function'
 
+Route::put('/edit/{id}}', [ PersonagemController::class, 'update'])->name('personagem.update'); // 'name of function'
+
 Route::get('/', function () {
     return view('welcome');
 });
