@@ -141,7 +141,26 @@ class PersonagemController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $personagem = $this->personagens->find($id)->update([
+            'nome' => $request->nome,
+            'idade' => $request->idade,
+            'altura' => $request->altura,
+            'peso' => $request->peso,
+            'classe_id' => $request->classe_id,
+            'raca_id' => $request->raca_id,
+            'atributo_id' => $this->atributos->find($id)->update([
+                'forca' => $request->forca,
+                'destreza' => $request->destreza,
+                'constituicao' => $request->constituicao,
+                'inteligencia' => $request->inteligencia,
+                'sabedoria' => $request->sabedoria,
+                'carisma' => $request->carisma,
+            ])->id,
 
+        ]);
+        $personagem->campanhas = $request->campanhas;
+
+        return redirect()->route('personagens.form')->compact('classes', 'racas', 'campanhas', 'personagem');
     }
 
     /**
