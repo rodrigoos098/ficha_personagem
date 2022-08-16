@@ -104,12 +104,15 @@ class PersonagemController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
+
     {
+        $personagem = $this->personagens->find($id);
+
         $classes = $this->classes;
         $racas = $this->racas;
         //$item_unicos = $this->item_unicos;
         $campanhas = $this->campanhas;
-        return view('personagens.form', compact('classes', 'racas', 'campanhas'));
+        return view('personagens.form', compact('classes', 'racas', 'campanhas', 'personagem'));
     }
 
     /**
@@ -120,7 +123,13 @@ class PersonagemController extends Controller
      */
     public function edit($id)
     {
+        $personagem = $this->personagens->find($id);
 
+        $classes = $this->classes;
+        $racas = $this->racas;
+        //$item_unicos = $this->item_unicos;
+        $campanhas = $this->campanhas;
+        return view('personagens.form', compact('classes', 'racas', 'campanhas', 'personagem'));
     }
 
     /**
