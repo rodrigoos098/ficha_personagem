@@ -171,6 +171,7 @@ class PersonagemController extends Controller
      */
     public function destroy($id)
     {
-
+        $personagem = $this->personagens->find($id)->delete();
+        return redirect()->route('personagens.index');
     }
 }
