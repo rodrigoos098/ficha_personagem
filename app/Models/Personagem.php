@@ -21,7 +21,13 @@ class Personagem extends Model
      * @var array
      */
     protected $hidden = [
-
+        'classeRelationship',
+        'racaRelationship',
+        'atributoRelationship',
+        'itemUnicoRelationship',
+        'campanhaRelationship',
+        'created_at',
+        'updated_at'
     ];
 
     /**
