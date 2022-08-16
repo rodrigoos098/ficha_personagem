@@ -28,6 +28,8 @@ Route::get('/edit/{id}', [ PersonagemController::class, 'edit'])->name('personag
 
 Route::put('/edit/{id}}', [ PersonagemController::class, 'update'])->name('personagem.update'); // 'name of function'
 
+Route::delete('/destroy/{id}}', [ PersonagemController::class, 'destroy'])->name('personagem.destroy'); // 'name of function'
+
 Route::get('/', function () {
     return view('welcome');
 });
