@@ -35,18 +35,6 @@ class PersonagemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function test()
-    {
-        $personagens = $this->personagens->all();
-        return view('personagens', compact('personagens'));
-    }
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $personagens = $this->personagens->all();
