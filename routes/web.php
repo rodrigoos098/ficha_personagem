@@ -18,9 +18,13 @@ Route::get('/test', [ PersonagemController::class, 'test'])->name('personagem.te
 
 Route::get('/index', [ PersonagemController::class, 'index'])->name('personagem.index'); // 'name of function'
 
-Route::get('/form', [ PersonagemController::class, 'create'])->name('personagem.create'); // 'name of function'
+Route::get('/create', [ PersonagemController::class, 'create'])->name('personagem.create'); // 'name of function'
 
-Route::post('/form', [ PersonagemController::class, 'store'])->name('personagem.store'); // 'name of function'
+Route::post('/create', [ PersonagemController::class, 'store'])->name('personagem.store'); // 'name of function'
+
+Route::get('/show/{id}', [ PersonagemController::class, 'show'])->name('personagem.show'); // 'name of function'
+
+Route::get('/edit/{id}', [ PersonagemController::class, 'edit'])->name('personagem.edit'); // 'name of function'
 
 Route::get('/', function () {
     return view('welcome');
