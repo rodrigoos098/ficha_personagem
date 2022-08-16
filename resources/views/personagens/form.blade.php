@@ -24,5 +24,9 @@
             {{$classes}}
             {{$racas}}
             {{$campanhas}}
+            @if (isset($personagem)){
+                {{$personagem}}
+            }
+            @endif
     </body>
 </html>
