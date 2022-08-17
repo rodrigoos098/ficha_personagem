@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+a {
+    font-family: "Comic Sans MS";
+    font-size: 12pt;
+    color: blue;
+}
+
+p {
+    font-family: "Comic Sans MS";
+    font-size: 16pt;
+    color: red;
+}
+
+h1 {
+    font-family: "Comic Sans MS";
+    font-size: 36pt;
+    color: green;
+}

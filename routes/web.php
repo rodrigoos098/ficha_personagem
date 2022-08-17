@@ -29,3 +29,7 @@ Route::put('/edit/{id}}', [ PersonagemController::class, 'update'])->name('perso
 Route::delete('/destroy/{id}}', [ PersonagemController::class, 'destroy'])->name('personagem.destroy'); // 'name of function'
 
 Route::get('/', [ PersonagemController::class, 'index'])->name('personagem.index');
+
+Route::get('/guanabara', function () {
+    return view('guanabara');
+});
