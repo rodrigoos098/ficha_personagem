@@ -32,6 +32,7 @@
             <td>{{$personagem->xp}}</td>
             <td>{{$personagem->classe->nome}}</td>
             <td>{{$personagem->raca->nome}}</td>
+            <td><a href="show/{{$personagem->id}}">Mostrar</a> <a href="edit/{{$personagem->id}}">Editar</a></td>
         </tr>
         @endforeach
     </table> <br /><br />
