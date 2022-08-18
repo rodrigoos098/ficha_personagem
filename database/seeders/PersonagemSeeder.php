@@ -24,5 +24,16 @@ class PersonagemSeeder extends Seeder
             'raca_id' => '2',
             'atributo_id' => '2',
         ]);
+
+        DB::table('personagens')->insert([
+            'nome' => 'Taylor Swift',
+            'xp' => '0',
+            'idade' => '32',
+            'altura' => '180',
+            'peso' => '54',
+            'classe_id' => '1',
+            'raca_id' => '1',
+            'atributo_id' => '3',
+        ]);
     }
 }
