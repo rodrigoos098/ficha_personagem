@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+$font-stack: "Comic Sans MS";
+$primary-color: green;
+
+a {
+    font-family: $font-stack;
+    font-size: 12pt;
+    color: blue;
+}
+
+p {
+    font-family: $font-stack;
+    font-size: 16pt;
+    color: red;
+}
+
+h1 {
+    font-family: $font-stack;
+    font-size: 36pt;
+    color: $primary-color;
+}
+
+h2 {
+    font-family: $font-stack;
+    font-size: 36pt;
+    color: $primary-color;
+}
+
+h3 {
+    font-family: $font-stack;
+    font-size: 36pt;
+    color: $primary-color;
+}
