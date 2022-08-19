@@ -11,15 +11,14 @@
         body {
             background-image: url('img/139380-anime-girls-simple-background-white-background-long-hair-sword-katana.jpg');
         }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
     </style>
 </head>
-<style>
-    table,
-    th,
-    td {
-        border: 1px solid black;
-    }
-</style>
 
 <body>
 
