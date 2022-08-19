@@ -1,29 +1,29 @@
 a {
-  font-family: "Algerian";
-  font-size: 12pt;
+  font-family: "Cambria Math";
+  font-size: 16pt;
   color: blue;
 }
 
 p {
-  font-family: "Algerian";
+  font-family: "Cambria Math";
   font-size: 16pt;
   color: red;
 }
 
 h1 {
-  font-family: "Algerian";
+  font-family: "Castellar";
   font-size: 36pt;
-  color: green;
+  color: rgb(104, 24, 100);
 }
 
 h2 {
-  font-family: "Algerian";
+  font-family: "Castellar";
   font-size: 26pt;
-  color: green;
+  color: rgb(104, 24, 100);
 }
 
 h3 {
-  font-family: "Algerian";
+  font-family: "Cambria Math";
   font-size: 20pt;
-  color: green;
+  color: rgb(104, 24, 100);
 }

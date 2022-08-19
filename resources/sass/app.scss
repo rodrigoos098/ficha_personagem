@@ -1,34 +1,36 @@
 @charset "UTF-8";
 
-$font-stack: "Algerian";
-$primary-color: green;
+$titulo_fonte: "Castellar";
+$outros_fonte: "Cambria Math";
+
+$primary-color: rgb(104, 24, 100);
 
 a {
-    font-family: $font-stack;
-    font-size: 12pt;
+    font-family: $outros_fonte;
+    font-size: 16pt;
     color: blue;
 }
 
 p {
-    font-family: $font-stack;
+    font-family: $outros_fonte;
     font-size: 16pt;
     color: red;
 }
 
 h1 {
-    font-family: $font-stack;
+    font-family: $titulo_fonte;
     font-size: 36pt;
     color: $primary-color;
 }
 
 h2 {
-    font-family: $font-stack;
+    font-family: $titulo_fonte;
     font-size: 26pt;
     color: $primary-color;
 }
 
 h3 {
-    font-family: $font-stack;
+    font-family: $outros_fonte;
     font-size: 20pt;
     color: $primary-color;
 }

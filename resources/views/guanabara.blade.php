@@ -10,18 +10,11 @@
 </head>
 
 <body>
-    <h1>Salve Mundo</h1>
-    <p>Escolha algum lugar pra ir</p> <br/>
-    <a href="index">Lista de Personagens</a> <br/>
-    <a href="create">Crie um Personagem</a> <br/>
-    @if (2 > 1)
-        @for ($i = 0; $i < 5; $i++, $numeroQualquer++)
-             <h2>{{ $nomeQualquer }} {{ $numeroQualquer }}</h2>
-        @endfor
-        @foreach ($indios as $indio)
-        <h2>{{ $indio }}</h2>
-        @endforeach
-    @endif
+    <h1>Fichas de Personagens &nbsp;&nbsp;&nbsp;&nbsp; &#129312;</h1>
+    <img src="img/bard_female.jpg" width=45% alt="Uma Barda tocando em uma taverna">
+    <h3>Para onde deseja ir, jovem aventureiro?</h3> <br/>
+    <a type="button" class="btn btn-primary" href="{{route('personagem.index')}}">Listar personagens criados</a>
+    <a type="button" class="btn btn-primary" href="{{route('personagem.create')}}">Criar personagem</a>
 </body>
 
 </html>

@@ -31,6 +31,5 @@ Route::delete('/destroy/{id}}', [ PersonagemController::class, 'destroy'])->name
 #Route::get('/', [ PersonagemController::class, 'index'])->name('personagem.index');
 
 Route::get('/', function () {
-    $indios = ['1', '2', '3', 'indiozinhos'];
-    return view('guanabara', ['numeroQualquer' => 777, 'nomeQualquer' => 'Spy Kid', 'indios' => $indios]);
+    return view('guanabara');
 });
