@@ -55,7 +55,6 @@
             </tbody>
         </table>
     </div> <br /><br />
-    {{ $personagens }}
 </body>
 
 </html>
