@@ -18,5 +18,8 @@
         "sass": "^1.54.4",
         "sass-loader": "^13.0.2",
         "webpack": "^5.74.0"
+    },
+    "dependencies": {
+        "bootstrap": "^5.2.0"
     }
 }

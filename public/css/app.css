@@ -27,3 +27,10 @@ h3 {
   font-size: 20pt;
   color: rgb(104, 24, 100);
 }
+
+table,
+th,
+td {
+  border: 3px solid black;
+  background-color: rgba(255, 255, 255, 0.9333333333);
+}

@@ -34,3 +34,10 @@ h3 {
     font-size: 20pt;
     color: $primary-color;
 }
+
+table,
+th,
+td {
+    border: 3px solid black;
+    background-color: #ffffffee;
+}
