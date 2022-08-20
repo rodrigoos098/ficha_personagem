@@ -14,6 +14,7 @@
     <style>
     body {
         background-image: url('img/143212-fantasy-art-fantasy-girl-simple-background-white-background.jpg');
+        background-size: cover;
     }
     </style>
 </head>
