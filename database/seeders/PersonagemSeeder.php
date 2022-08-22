@@ -22,7 +22,7 @@ class PersonagemSeeder extends Seeder
             'peso' => '58',
             'classe_id' => '2',
             'raca_id' => '2',
-            'atributo_id' => '2',
+            'atributo_id' => '1',
         ]);
 
         DB::table('personagens')->insert([
@@ -33,7 +33,7 @@ class PersonagemSeeder extends Seeder
             'peso' => '54',
             'classe_id' => '1',
             'raca_id' => '1',
-            'atributo_id' => '3',
+            'atributo_id' => '2',
         ]);
     }
 }

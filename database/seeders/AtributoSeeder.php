@@ -31,14 +31,5 @@ class AtributoSeeder extends Seeder
             'sabedoria' => 15,
             'carisma' => 15,
         ]);
-
-        DB::table('atributos')->insert([
-            'forca' => 15,
-            'destreza' => 8,
-            'constituicao' => 15,
-            'inteligencia' => 8,
-            'sabedoria' => 15,
-            'carisma' => 8,
-        ]);
     }
 }
