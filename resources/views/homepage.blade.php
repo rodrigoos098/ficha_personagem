@@ -23,8 +23,8 @@
     <h1>Fichas de Personagens  &#127993;</h1>
     {{-- <img src="img/bard_female.jpg" width=45% alt="Uma Barda tocando em uma taverna"> --}}
     <br/> <h3>Para onde deseja ir, jovem aventureiro?</h3>
-    <a type="button" class="btn btn-primary" href="{{route('personagem.index')}}">Listar personagens criados</a> <br/><br/>
-    <a type="button" class="btn btn-success" href="{{route('personagem.create')}}">Criar personagem</a>
+    <a type="button" class="btn btn-primary" href="{{route('personagens.index')}}">Listar personagens criados</a> <br/><br/>
+    <a type="button" class="btn btn-success" href="{{route('personagens.create')}}">Criar personagem</a>
 </body>
 
 </html>

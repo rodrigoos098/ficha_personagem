@@ -22,10 +22,11 @@
 
 <body>
 
-    <h2>Lista de Personagens:</h2>
+    <br>
+    <h2>&emsp;Lista de Personagens:</h2><br>
     <div class="container-fluid">
-        <a type="button" class="btn btn-success" href="{{ route('personagem.create') }}">Criar personagem</a>
-    </div>
+        <a type="button" class="btn btn-success" href="{{ route('personagens.create') }}">Criar personagem</a>
+    </div><br>
 
     <br />
 
@@ -48,9 +49,9 @@
                         <td>{{ $personagem->classe->nome }}</td>
                         <td>{{ $personagem->raca->nome }}</td>
                         <td><a type="button" class="btn btn-primary"
-                                href="{{ route('personagem.show', $personagem->id) }}">Visualizar</a>
+                                href="{{ route('personagens.show', $personagem->id) }}">Visualizar</a>
                             <a type="button" class="btn btn-warning"
-                                href="{{ route('personagem.edit', $personagem->id) }}">Editar</a>
+                                href="{{ route('personagens.edit', $personagem->id) }}">Editar</a>
                     </tr>
                 @endforeach
             </tbody>

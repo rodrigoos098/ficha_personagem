@@ -23,10 +23,10 @@ class PersonagemController extends Controller
      */
     public function __construct(Personagem $personagens){
         $this->atributos = new Atributo;
-        $this->classes = Classe::all()->pluck('nome', 'id');
-        $this->racas = Raca::all()->pluck('nome', 'id');
+        $this->classes = Classe::all();//->pluck('nome', 'id');
+        $this->racas = Raca::all();//->pluck('nome', 'id');
         $this->item_unicos = ItemUnico::all()->pluck('nome', 'id');
-        $this->campanhas = Campanha::all()->pluck('nome', 'id');
+        $this->campanhas = Campanha::all();//->pluck('nome', 'id');
         $this->personagens = $personagens;
     }
 
@@ -65,6 +65,7 @@ class PersonagemController extends Controller
     {
         $personagem = $this->personagens->create([
             'nome' => $request->nome,
+            'xp' => $request->xp,
             'idade' => $request->idade,
             'altura' => $request->altura,
             'peso' => $request->peso,
@@ -131,19 +132,20 @@ class PersonagemController extends Controller
     {
         $personagem = $this->personagens->find($id)->update([
             'nome' => $request->nome,
+            'xp' => $request->xp,
             'idade' => $request->idade,
             'altura' => $request->altura,
             'peso' => $request->peso,
             'classe_id' => $request->classe_id,
             'raca_id' => $request->raca_id,
-            'atributo_id' => $this->atributos->find($id)->update([
+            $this->atributos->find($id)->update([
                 'forca' => $request->forca,
                 'destreza' => $request->destreza,
                 'constituicao' => $request->constituicao,
                 'inteligencia' => $request->inteligencia,
                 'sabedoria' => $request->sabedoria,
                 'carisma' => $request->carisma,
-            ])->id,
+            ]),
 
         ]);
         $personagem->campanhas = $request->campanhas;
