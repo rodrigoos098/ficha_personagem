@@ -151,7 +151,6 @@ class PersonagemController extends Controller
 
         ]);
 
-        dd($personagem);
         $personagem->campanhas = $request->campanhas;
 
         return redirect()->route('personagens.show', $personagem->id);
