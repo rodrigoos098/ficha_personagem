@@ -16,6 +16,7 @@
         body {
             background-image: url('img/1920x1080-152483-fantasy-girl-simple-background-white-background-fantasy-art-Girl-With-Weapon.jpg');
             background-size: cover;
+            background-repeat: no-repeat;
         }
     </style>
 </head>
