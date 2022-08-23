@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     <style>
+
+        .nobr { white-space: nowrap }
+
         body {
             background-image: url('img/1920x1080-152483-fantasy-girl-simple-background-white-background-fantasy-art-Girl-With-Weapon.jpg');
             background-size: cover;
@@ -34,31 +37,23 @@
 
     @csrf
 
-    &ensp;<label for="nome" class="form-check-label">Nome:</label>
-    <input placeholder="Somente Letras" name="nome" type="text" id="nome"
-        value="{{ $personagem->nome ?? null }}">
+    &emsp;{!!Form::label('nome', 'Nome:', ['class' => 'form-check-label'])!!}
+    {!!Form::text('nome', $personagem->nome ?? null,['placeholder' => 'Somente Letras', 'style' => 'width: 20em',  $form??null] );!!}
 
-    &nbsp;<label for="xp" class="form-check-label">XP:</label>
-    <input type="number" id="xp" name="xp" style="width: 7em" value="{{ $personagem->xp ?? 0 }}"><br><br>
+    &nbsp;{!!Form::label('xp', 'XP:', ['class' => 'form-check-label'])!!}
+    {!!Form::number('xp', isset($personagem) ? $personagem->xp : 0,['style' => 'width: 7em',  $form??null] );!!} <br><br>
 
-    &ensp;&nbsp;<label for="idade" class="form-check-label">Idade:</label>
-    <input placeholder="Anos" type="number" id="idade" name="idade" style="width: 5em"
-        value="{{ $personagem->idade ?? null }}">
+    &emsp;&nbsp;{!!Form::label('idade', 'Idade:', ['class' => 'form-check-label'])!!}
+    {!!Form::number('idade', $personagem->idade ?? null,['placeholder' => 'Anos', 'style' => 'width: 5em',  $form??null] );!!}
 
-    &nbsp;<label for="altura" class="form-check-label">Altura:</label>
-    <input placeholder="CM" type="number" id="altura" name="altura" style="width: 4em"
-        value="{{ $personagem->altura ?? null }}">
+    &nbsp;{!!Form::label('altura', 'Altura:', ['class' => 'form-check-label'])!!}
+    {!!Form::number('altura', $personagem->altura ?? null,['placeholder' => 'CM', 'style' => 'width: 4em',  $form??null] );!!}
 
-    &nbsp;<label for="peso" class="form-check-label">Peso:</label>
-    <input placeholder="KG" type="number" id="peso" name="peso" style="width: 5em"
-        value="{{ $personagem->peso ?? null }}"><br><br>
+    &nbsp;{!!Form::label('peso', 'Peso:', ['class' => 'form-check-label'])!!}
+    {!!Form::number('peso', $personagem->peso ?? null,['placeholder' => 'KG', 'style' => 'width: 5em',  $form??null] );!!} <br><br>
 
-    &ensp;<label for="classe_id" class="form-check-label">Classe:</label>
-    <select name="classe_id" id="classe_id">
-        @foreach ($classes as $classe)
-            <option value="{{ $classe->id }}">{{ $classe->nome }}</option>
-        @endforeach
-    </select>
+    &emsp;{!!Form::label('classe_id', 'Classe:', ['class' => 'form-check-label'])!!}
+    {!!Form::select('classe_id', $classes, isset($personagem) ? $personagem->classe->id : null, ['placeholder'=> '', $form??null])!!}
 
     &nbsp;<label for="raca_id" class="form-check-label">Raça:</label>
     <select name="raca_id" id="raca_id">
@@ -91,13 +86,8 @@
     <input type="number" id="carisma" name="carisma" style="width: 3em"
         value="{{ $personagem->atributo->carisma ?? 8 }}"><br><br>
 
-    &ensp;<label for="campanha" class="form-check-label">Campanha:</label>
-    <select name="campanha" id="campanha">
-        <option value=null></option>
-        @foreach ($campanhas as $campanha)
-            <option value="{{ $campanha->id }}">{{ $campanha->nome }}</option>
-        @endforeach
-    </select> <br><br>
+    &emsp;{!!Form::label('campanha', 'Campanha:', ['class' => 'form-check-label'])!!}
+    {!!Form::select('campanha', $campanhas, isset($personagem) ? $personagem->campanha->first()->id : null, ['placeholder'=> '', $form??null])!!}
 
     &ensp;<input type="submit" value="Confirmar">
 

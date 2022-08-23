@@ -23,7 +23,7 @@ class PersonagemController extends Controller
      */
     public function __construct(Personagem $personagens){
         $this->atributos = new Atributo;
-        $this->classes = Classe::all();//->pluck('nome', 'id');
+        $this->classes = Classe::all()->pluck('nome', 'id');
         $this->racas = Raca::all();//->pluck('nome', 'id');
         $this->item_unicos = ItemUnico::all()->pluck('nome', 'id');
         $this->campanhas = Campanha::all();//->pluck('nome', 'id');
