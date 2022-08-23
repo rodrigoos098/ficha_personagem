@@ -130,7 +130,9 @@ class PersonagemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $personagem = $this->personagens->find($id)->update([
+        $personagem = $this->personagens->find($id);
+
+        $personagem->update([
             'nome' => $request->nome,
             'xp' => $request->xp,
             'idade' => $request->idade,
@@ -138,19 +140,21 @@ class PersonagemController extends Controller
             'peso' => $request->peso,
             'classe_id' => $request->classe_id,
             'raca_id' => $request->raca_id,
-            $this->atributos->find($id)->update([
+            'atributo_id' => tap($this->atributos->find($personagem->atributo->id))->update([
                 'forca' => $request->forca,
                 'destreza' => $request->destreza,
                 'constituicao' => $request->constituicao,
                 'inteligencia' => $request->inteligencia,
                 'sabedoria' => $request->sabedoria,
                 'carisma' => $request->carisma,
-            ]),
+            ])->id,
 
         ]);
+
+        dd($personagem);
         $personagem->campanhas = $request->campanhas;
 
-        return redirect()->route('personagens.form')->compact('classes', 'racas', 'campanhas', 'personagem');
+        return redirect()->route('personagens.show', $personagem->id);
     }
 
     /**
