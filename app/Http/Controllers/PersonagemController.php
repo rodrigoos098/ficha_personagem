@@ -81,7 +81,7 @@ class PersonagemController extends Controller
             ])->id,
 
         ]);
-        $personagem->campanhas = $request->campanhas;
+        $personagem->campanhaRelationship()->attach($request->campanha);
 
         return redirect()->route('personagens.index');
     }
@@ -151,7 +151,7 @@ class PersonagemController extends Controller
 
         ]);
 
-        $personagem->campanhas = $request->campanhas;
+        $personagem->campanha = $request->campanha;
 
         return redirect()->route('personagens.show', $personagem->id);
     }
