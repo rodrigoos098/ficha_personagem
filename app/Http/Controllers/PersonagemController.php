@@ -96,12 +96,13 @@ class PersonagemController extends Controller
 
     {
         $personagem = $this->personagens->find($id);
+        $form = 'disabled';
 
         $classes = $this->classes;
         $racas = $this->racas;
         //$item_unicos = $this->item_unicos;
         $campanhas = $this->campanhas;
-        return view('personagens.form', compact('classes', 'racas', 'campanhas', 'personagem'));
+        return view('personagens.form', compact('classes', 'racas', 'campanhas', 'personagem', 'form'));
     }
 
     /**

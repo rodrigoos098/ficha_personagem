@@ -18,13 +18,20 @@
             background-size: cover;
             background-repeat: no-repeat;
         }
+        @font-face {
+            font-family: 'devinne_swashregular';
+            src: url('font/devinneswash-qzd5-webfont.woff2') format('woff2'),
+                url('font/devinneswash-qzd5-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
     </style>
 </head>
 
 <body>
     <br>
     <h2>&emsp;Criação de Personagem</h2><br />
-    
+
     @if (isset($personagem))
         {!! Form::open(['route' => array('personagens.update', $personagem->id), 'method' => 'PUT', 'name' => 'form'])!!}
     @else
@@ -51,7 +58,7 @@
     &emsp;{!!Form::label('classe_id', 'Classe:', ['class' => 'form-check-label'])!!}
     {!!Form::select('classe_id', $classes, isset($personagem) ? $personagem->classe->id : null, ['placeholder'=> '', $form??null])!!}
 
-    &nbsp;{!!Form::label('raca_id', 'Raca:', ['class' => 'form-check-label'])!!}
+    &nbsp;{!!Form::label('raca_id', 'Raça:', ['class' => 'form-check-label'])!!}
     {!!Form::select('raca_id', $racas, isset($personagem) ? $personagem->raca->id : null, ['placeholder'=> '', $form??null])!!}<br><br>
 
     &emsp;&nbsp;{!!Form::label('forca', 'Força:', ['class' => 'form-check-label'])!!}
@@ -71,11 +78,11 @@
 
     &nbsp;{!!Form::label('carisma', 'Carisma:', ['class' => 'form-check-label'])!!}
     {!!Form::number('carisma', $personagem->atributo->carisma ?? 8,['style' => 'width: 3em',  $form??null] );!!} <br><br>
-
+{{-- {{dd($personagem->campanha)}} --}}
     &emsp;{!!Form::label('campanha', 'Campanha:', ['class' => 'form-check-label'])!!}
-    {!!Form::select('campanha', $campanhas, isset($personagem) ? $personagem->campanha->first()->id : null, ['placeholder'=> '', $form??null])!!} <br><br>
+    {!!Form::select('campanha', $campanhas, (isset($personagem) && $personagem->campanha->first() !== null) ? $personagem->campanha->first()->id : null, ['placeholder'=> '', $form??null])!!} <br><br>
 
-    &emsp;{!! Form::submit('Confirmar', ['class' => 'btn btn-success', $form??null]); !!}
+    &emsp;{!! Form::submit('Salvar', ['class' => 'btn btn-success', $form??null]); !!}
 
     {!! Form::close() !!}
 </body>

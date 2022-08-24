@@ -18,6 +18,13 @@
             background-size: cover;
             background-repeat: no-repeat;
         }
+        @font-face {
+            font-family: 'devinne_swashregular';
+            src: url('font/devinneswash-qzd5-webfont.woff2') format('woff2'),
+                url('font/devinneswash-qzd5-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
     </style>
 </head>
 
@@ -32,7 +39,7 @@
     <br />
 
     <div class="container-fluid">
-        <table class="table">
+        <table>
             <thead>
                 <tr>
                     <th>Nome</th>

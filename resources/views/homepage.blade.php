@@ -25,19 +25,19 @@
                 url('font/devinneswash-qzd5-webfont.woff') format('woff');
             font-weight: normal;
             font-style: normal;
-
         }
     </style>
 </head>
 
 <body>
-    <h1>Fichas de Personagens &#127993;</h1>
+    <br>
+    <h1>&emsp;Fichas de Personagens &#127993;</h1>
     {{-- <img src="img/bard_female.jpg" width=45% alt="Uma Barda tocando em uma taverna"> --}}
     <br />
-    <h3>Para onde deseja ir, jovem aventureiro?</h3>
-    <a type="button" class="btn btn-primary" href="{{ route('personagens.index') }}">Listar personagens criados</a>
+    <h3>&ensp;Para onde deseja ir, jovem aventureiro?</h3>
+    &ensp;<a type="button" class="btn btn-primary" href="{{ route('personagens.index') }}">Listar personagens criados</a>
     <br /><br />
-    <a type="button" class="btn btn-success" href="{{ route('personagens.create') }}">Criar personagem</a>
+    &ensp;<a type="button" class="btn btn-success" href="{{ route('personagens.create') }}">Criar personagem</a>
 </body>
 
 </html>

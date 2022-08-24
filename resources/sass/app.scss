@@ -35,7 +35,7 @@ h3 {
     color: $primary-color;
 }
 
-table,
+table{ min-width: 61%; }
 th,
 tr,
 td {
