@@ -24,12 +24,11 @@
 <body>
     <br>
     <h2>&emsp;Criação de Personagem</h2><br />
+    
     @if (isset($personagem))
-        <form method="POST" action="{{ route('personagens.update', $personagem->id) }}" accept-charset="UTF-8"
-            name="form">
-            @method('PUT')
+        {!! Form::open(['route' => array('personagens.update', $personagem->id), 'method' => 'PUT', 'name' => 'form'])!!}
     @else
-            <form method="POST" action="{{ route('personagens.store') }}" accept-charset="UTF-8" name="form">
+        {!! Form::open(['route' => array('personagens.store'), 'method' => 'POST', 'name' => 'form'])!!}
     @endif
 
     @csrf
@@ -74,11 +73,11 @@
     {!!Form::number('carisma', $personagem->atributo->carisma ?? 8,['style' => 'width: 3em',  $form??null] );!!} <br><br>
 
     &emsp;{!!Form::label('campanha', 'Campanha:', ['class' => 'form-check-label'])!!}
-    {!!Form::select('campanha', $campanhas, isset($personagem) ? $personagem->campanha->first()->id : null, ['placeholder'=> '', $form??null])!!}
+    {!!Form::select('campanha', $campanhas, isset($personagem) ? $personagem->campanha->first()->id : null, ['placeholder'=> '', $form??null])!!} <br><br>
 
-    &ensp;<input type="submit" value="Confirmar">
+    &emsp;{!! Form::submit('Confirmar', ['class' => 'btn btn-success', $form??null]); !!}
 
-    </form>
+    {!! Form::close() !!}
 </body>
 
 </html>
