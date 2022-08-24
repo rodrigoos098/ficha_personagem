@@ -14,7 +14,7 @@
 
     <style>
         body {
-            background-image: url('img/143212-fantasy-art-fantasy-girl-simple-background-white-background.jpg');
+            background-image: url('img/homepage_girl.jpg');
             background-size: cover;
             background-repeat: no-repeat;
         }

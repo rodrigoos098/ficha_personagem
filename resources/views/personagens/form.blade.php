@@ -13,11 +13,8 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     <style>
-
-        .nobr { white-space: nowrap }
-
         body {
-            background-image: url('img/1920x1080-152483-fantasy-girl-simple-background-white-background-fantasy-art-Girl-With-Weapon.jpg');
+            background-image: url('img/form_girl.jpg');
             background-size: cover;
             background-repeat: no-repeat;
         }
@@ -31,7 +28,7 @@
         <form method="POST" action="{{ route('personagens.update', $personagem->id) }}" accept-charset="UTF-8"
             name="form">
             @method('PUT')
-        @else
+    @else
             <form method="POST" action="{{ route('personagens.store') }}" accept-charset="UTF-8" name="form">
     @endif
 
@@ -55,36 +52,26 @@
     &emsp;{!!Form::label('classe_id', 'Classe:', ['class' => 'form-check-label'])!!}
     {!!Form::select('classe_id', $classes, isset($personagem) ? $personagem->classe->id : null, ['placeholder'=> '', $form??null])!!}
 
-    &nbsp;<label for="raca_id" class="form-check-label">Raça:</label>
-    <select name="raca_id" id="raca_id">
-        @foreach ($racas as $raca)
-            <option value="{{ $raca->id }}">{{ $raca->nome }}</option>
-        @endforeach
-    </select><br><br>
+    &nbsp;{!!Form::label('raca_id', 'Raca:', ['class' => 'form-check-label'])!!}
+    {!!Form::select('raca_id', $racas, isset($personagem) ? $personagem->raca->id : null, ['placeholder'=> '', $form??null])!!}<br><br>
 
-    &ensp;&nbsp;<label for="forca" class="form-check-label">Força:</label>
-    <input type="number" id="forca" name="forca" style="width: 3em"
-        value="{{ $personagem->atributo->forca ?? 8 }}">
+    &emsp;&nbsp;{!!Form::label('forca', 'Força:', ['class' => 'form-check-label'])!!}
+    {!!Form::number('forca', $personagem->atributo->forca ?? 8,['style' => 'width: 3em',  $form??null] );!!}
 
-    &nbsp;<label for="destreza" class="form-check-label">Destreza:</label>
-    <input type="number" id="destreza" name="destreza" style="width: 3em"
-        value="{{ $personagem->atributo->destreza ?? 8 }}">
+    &nbsp;{!!Form::label('destreza', 'Destreza:', ['class' => 'form-check-label'])!!}
+    {!!Form::number('destreza', $personagem->atributo->destreza ?? 8,['style' => 'width: 3em',  $form??null] );!!}
 
-    &nbsp;<label for="constituicao" class="form-check-label">Constituição:</label>
-    <input type="number" id="constituicao" name="constituicao" style="width: 3em"
-        value="{{ $personagem->atributo->constituicao ?? 8 }}">
+    &nbsp;{!!Form::label('constituicao', 'Constituição:', ['class' => 'form-check-label'])!!}
+    {!!Form::number('constituicao', $personagem->atributo->constituicao ?? 8,['style' => 'width: 3em',  $form??null] );!!}
 
-    &nbsp;<label for="inteligencia" class="form-check-label">Inteligência:</label>
-    <input type="number" id="inteligencia" name="inteligencia" style="width: 3em"
-        value="{{ $personagem->atributo->inteligencia ?? 8 }}">
+    &nbsp;{!!Form::label('inteligencia', 'Inteligência:', ['class' => 'form-check-label'])!!}
+    {!!Form::number('inteligencia', $personagem->atributo->inteligencia ?? 8,['style' => 'width: 3em',  $form??null] );!!}
 
-    &nbsp;<label for="sabedoria" class="form-check-label">Sabedoria:</label>
-    <input type="number" id="sabedoria" name="sabedoria" style="width: 3em"
-        value="{{ $personagem->atributo->sabedoria ?? 8 }}">
+    &nbsp;{!!Form::label('sabedoria', 'Sabedoria:', ['class' => 'form-check-label'])!!}
+    {!!Form::number('sabedoria', $personagem->atributo->sabedoria ?? 8,['style' => 'width: 3em',  $form??null] );!!}
 
-    &nbsp;<label for="carisma" class="form-check-label">Carisma:</label>
-    <input type="number" id="carisma" name="carisma" style="width: 3em"
-        value="{{ $personagem->atributo->carisma ?? 8 }}"><br><br>
+    &nbsp;{!!Form::label('carisma', 'Carisma:', ['class' => 'form-check-label'])!!}
+    {!!Form::number('carisma', $personagem->atributo->carisma ?? 8,['style' => 'width: 3em',  $form??null] );!!} <br><br>
 
     &emsp;{!!Form::label('campanha', 'Campanha:', ['class' => 'form-check-label'])!!}
     {!!Form::select('campanha', $campanhas, isset($personagem) ? $personagem->campanha->first()->id : null, ['placeholder'=> '', $form??null])!!}

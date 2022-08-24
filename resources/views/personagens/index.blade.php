@@ -14,7 +14,7 @@
 
     <style>
         body {
-            background-image: url('img/139380-anime-girls-simple-background-white-background-long-hair-sword-katana.jpg');
+            background-image: url('img/index_girl.jpg');
             background-size: cover;
             background-repeat: no-repeat;
         }
