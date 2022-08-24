@@ -78,13 +78,20 @@
 
     &nbsp;{!!Form::label('carisma', 'Carisma:', ['class' => 'form-check-label'])!!}
     {!!Form::number('carisma', $personagem->atributo->carisma ?? 8,['style' => 'width: 3em',  $form??null] );!!} <br><br>
-{{-- {{dd($personagem->campanha)}} --}}
+
     &emsp;{!!Form::label('campanha', 'Campanha:', ['class' => 'form-check-label'])!!}
     {!!Form::select('campanha', $campanhas, (isset($personagem) && $personagem->campanha->first() !== null) ? $personagem->campanha->first()->id : null, ['placeholder'=> '', $form??null])!!} <br><br>
 
-    &emsp;{!! Form::submit('Salvar', ['class' => 'btn btn-success', $form??null]); !!}
+    &emsp;{!! Form::submit('Salvar', ['class' => 'btn btn-success', $form??null]); !!} <br><br>
 
     {!! Form::close() !!}
+
+    @if (isset($personagem))
+        {!! Form::open(['route' => array('personagens.destroy', $personagem->id), 'method' => 'DELETE', 'name' => 'form'])!!}
+        &emsp;{!! Form::submit('Excluir', ['class' => 'btn btn-danger', $form??null]); !!}
+        <p style="color: red">&emsp;CUIDADO!!!</p>
+        {!! Form::close() !!}
+    @endif
 </body>
 
 </html>

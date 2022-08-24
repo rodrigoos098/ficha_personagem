@@ -1,41 +1,45 @@
 @charset "UTF-8";
 
 $titulo_fonte: "devinne_swashregular";
-$outros_fonte: "Cambria Math";
+$outros_fonte: "Constantia";
 
-$primary-color: rgb(104, 24, 100);
+$titulo_cor: rgb(104, 24, 100);
+$outros_cor: rgb(36, 3, 34);
 
 a {
     font-family: $outros_fonte;
     font-size: 16pt;
-    color: blue;
+    color: $outros_cor;
 }
 
 p {
     font-family: $outros_fonte;
     font-size: 16pt;
-    color: red;
+    color: $outros_cor;
 }
 
 h1 {
     font-family: $titulo_fonte;
     font-size: 36pt;
-    color: $primary-color;
+    color: $titulo_cor;
 }
 
 h2 {
     font-family: $titulo_fonte;
     font-size: 26pt;
-    color: $primary-color;
+    color: $titulo_cor;
 }
 
 h3 {
     font-family: $outros_fonte;
     font-size: 20pt;
-    color: $primary-color;
+    color: $outros_cor;
 }
 
-table{ min-width: 61%; }
+table {
+    max-width: 61%;
+}
+
 th,
 tr,
 td {

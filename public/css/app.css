@@ -1,13 +1,13 @@
 a {
-  font-family: "Cambria Math";
+  font-family: "Constantia";
   font-size: 16pt;
-  color: blue;
+  color: rgb(36, 3, 34);
 }
 
 p {
-  font-family: "Cambria Math";
+  font-family: "Constantia";
   font-size: 16pt;
-  color: red;
+  color: rgb(36, 3, 34);
 }
 
 h1 {
@@ -23,13 +23,13 @@ h2 {
 }
 
 h3 {
-  font-family: "Cambria Math";
+  font-family: "Constantia";
   font-size: 20pt;
-  color: rgb(104, 24, 100);
+  color: rgb(36, 3, 34);
 }
 
 table {
-  min-width: 61%;
+  max-width: 61%;
 }
 
 th,

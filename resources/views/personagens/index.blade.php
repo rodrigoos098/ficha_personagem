@@ -39,7 +39,7 @@
     <br />
 
     <div class="container-fluid">
-        <table>
+        <table class="table">
             <thead>
                 <tr>
                     <th>Nome</th>
