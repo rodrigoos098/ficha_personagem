@@ -79,8 +79,15 @@
     &nbsp;{!!Form::label('carisma', 'Carisma:', ['class' => 'form-check-label'])!!}
     {!!Form::number('carisma', $personagem->atributo->carisma ?? 8,['style' => 'width: 3em',  $form??null] );!!} <br><br>
 
-    &emsp;{!!Form::label('campanha', 'Campanha:', ['class' => 'form-check-label'])!!}
-    {!!Form::select('campanha', $campanhas, (isset($personagem) && $personagem->campanha->first() !== null) ? $personagem->campanha->first()->id : null, ['placeholder'=> '', $form??null])!!} <br><br>
+    &emsp;{!!Form::label('campanhaa', 'Campanha:', ['class' => 'form-check-label'])!!}
+    {!!Form::select('campanhaa', $campanhas, (isset($personagem) && $personagem->campanha->first() !== null) ? $personagem->campanha->first()->id : null, ['placeholder'=> '', $form??null])!!} <br><br>
+
+    &emsp;{!!Form::label('campanha', 'Campanhas:', ['class' => 'form-check-label'])!!} <br>
+    @foreach ($campanhas as $campanha)
+        &emsp;&emsp;{!!Form::checkbox('campanha', 'teste')!!}
+        &nbsp;{!!Form::label("campanha$loop->iteration", $campanha, ['class' => 'form-check-label'])!!} <br>
+    @endforeach
+    <br>
 
     &emsp;{!! Form::submit('Salvar', ['class' => 'btn btn-success', $form??null]); !!} <br><br>
 
