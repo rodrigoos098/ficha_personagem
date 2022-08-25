@@ -41,50 +41,47 @@
     @csrf
 
     &emsp;{!!Form::label('nome', 'Nome:', ['class' => 'form-check-label'])!!}
-    {!!Form::text('nome', $personagem->nome ?? null,['placeholder' => 'Somente Letras', 'style' => 'width: 20em',  $form??null] );!!}
+    {!!Form::text('nome', $personagem->nome ?? null,['style' => 'width: 20em', 'required',  $form??null] );!!}
 
     &nbsp;{!!Form::label('xp', 'XP:', ['class' => 'form-check-label'])!!}
-    {!!Form::number('xp', isset($personagem) ? $personagem->xp : 0,['style' => 'width: 7em',  $form??null] );!!} <br><br>
+    {!!Form::number('xp', isset($personagem) ? $personagem->xp : 0,['style' => 'width: 7em', 'max' => '355000', 'min' => '0', $form??null] );!!} <br><br>
 
     &emsp;&nbsp;{!!Form::label('idade', 'Idade:', ['class' => 'form-check-label'])!!}
-    {!!Form::number('idade', $personagem->idade ?? null,['placeholder' => 'Anos', 'style' => 'width: 5em',  $form??null] );!!}
+    {!!Form::number('idade', $personagem->idade ?? null,['placeholder' => 'Anos', 'style' => 'width: 5em', 'max' => '2000', 'min' => '1', 'required',  $form??null] );!!}
 
     &nbsp;{!!Form::label('altura', 'Altura:', ['class' => 'form-check-label'])!!}
-    {!!Form::number('altura', $personagem->altura ?? null,['placeholder' => 'CM', 'style' => 'width: 4em',  $form??null] );!!}
+    {!!Form::number('altura', $personagem->altura ?? null,['placeholder' => 'CM', 'style' => 'width: 4em', 'max' => '1000', 'min' => '1', 'required',  $form??null] );!!}
 
     &nbsp;{!!Form::label('peso', 'Peso:', ['class' => 'form-check-label'])!!}
-    {!!Form::number('peso', $personagem->peso ?? null,['placeholder' => 'KG', 'style' => 'width: 5em',  $form??null] );!!} <br><br>
+    {!!Form::number('peso', $personagem->peso ?? null,['placeholder' => 'KG', 'style' => 'width: 5em', 'max' => '5000', 'min' => '1', 'required',  $form??null] );!!} <br><br>
 
     &emsp;{!!Form::label('classe_id', 'Classe:', ['class' => 'form-check-label'])!!}
-    {!!Form::select('classe_id', $classes, isset($personagem) ? $personagem->classe->id : null, ['placeholder'=> '', $form??null])!!}
+    {!!Form::select('classe_id', $classes, isset($personagem) ? $personagem->classe->id : null, ['placeholder'=> '', 'required', $form??null])!!}
 
     &nbsp;{!!Form::label('raca_id', 'Raça:', ['class' => 'form-check-label'])!!}
-    {!!Form::select('raca_id', $racas, isset($personagem) ? $personagem->raca->id : null, ['placeholder'=> '', $form??null])!!}<br><br>
+    {!!Form::select('raca_id', $racas, isset($personagem) ? $personagem->raca->id : null, ['placeholder'=> '', 'required', $form??null])!!}<br><br>
 
     &emsp;&nbsp;{!!Form::label('forca', 'Força:', ['class' => 'form-check-label'])!!}
-    {!!Form::number('forca', $personagem->atributo->forca ?? 8,['style' => 'width: 3em',  $form??null] );!!}
+    {!!Form::number('forca', $personagem->atributo->forca ?? 8,['style' => 'width: 3em', 'max' => '30', 'min' => '8',  $form??null] );!!}
 
     &nbsp;{!!Form::label('destreza', 'Destreza:', ['class' => 'form-check-label'])!!}
-    {!!Form::number('destreza', $personagem->atributo->destreza ?? 8,['style' => 'width: 3em',  $form??null] );!!}
+    {!!Form::number('destreza', $personagem->atributo->destreza ?? 8,['style' => 'width: 3em', 'max' => '30', 'min' => '8',  $form??null] );!!}
 
     &nbsp;{!!Form::label('constituicao', 'Constituição:', ['class' => 'form-check-label'])!!}
-    {!!Form::number('constituicao', $personagem->atributo->constituicao ?? 8,['style' => 'width: 3em',  $form??null] );!!}
+    {!!Form::number('constituicao', $personagem->atributo->constituicao ?? 8,['style' => 'width: 3em', 'max' => '30', 'min' => '8',  $form??null] );!!}
 
     &nbsp;{!!Form::label('inteligencia', 'Inteligência:', ['class' => 'form-check-label'])!!}
-    {!!Form::number('inteligencia', $personagem->atributo->inteligencia ?? 8,['style' => 'width: 3em',  $form??null] );!!}
+    {!!Form::number('inteligencia', $personagem->atributo->inteligencia ?? 8,['style' => 'width: 3em', 'max' => '30', 'min' => '8',  $form??null] );!!}
 
     &nbsp;{!!Form::label('sabedoria', 'Sabedoria:', ['class' => 'form-check-label'])!!}
-    {!!Form::number('sabedoria', $personagem->atributo->sabedoria ?? 8,['style' => 'width: 3em',  $form??null] );!!}
+    {!!Form::number('sabedoria', $personagem->atributo->sabedoria ?? 8,['style' => 'width: 3em', 'max' => '30', 'min' => '8',  $form??null] );!!}
 
     &nbsp;{!!Form::label('carisma', 'Carisma:', ['class' => 'form-check-label'])!!}
-    {!!Form::number('carisma', $personagem->atributo->carisma ?? 8,['style' => 'width: 3em',  $form??null] );!!} <br><br>
-
-    &emsp;{!!Form::label('campanhaa', 'Campanha:', ['class' => 'form-check-label'])!!}
-    {!!Form::select('campanhaa', $campanhas, (isset($personagem) && $personagem->campanha->first() !== null) ? $personagem->campanha->first()->id : null, ['placeholder'=> '', $form??null])!!} <br><br>
+    {!!Form::number('carisma', $personagem->atributo->carisma ?? 8,['style' => 'width: 3em', 'max' => '30', 'min' => '8',  $form??null] );!!} <br><br>
 
     &emsp;{!!Form::label('campanha', 'Campanhas:', ['class' => 'form-check-label'])!!} <br>
     @foreach ($campanhas as $campanha)
-        &emsp;&emsp;{!!Form::checkbox('campanha', 'teste')!!}
+        &emsp;&emsp;{!!Form::checkbox('campanha[]', $campanha, (isset($personagem) && $personagem->campanha->where('nome',$campanha)->isNotEmpty()) ? true : false)!!}
         &nbsp;{!!Form::label("campanha$loop->iteration", $campanha, ['class' => 'form-check-label'])!!} <br>
     @endforeach
     <br>

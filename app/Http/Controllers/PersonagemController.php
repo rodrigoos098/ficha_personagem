@@ -81,7 +81,17 @@ class PersonagemController extends Controller
             ])->id,
 
         ]);
-        $personagem->campanhaRelationship()->attach($request->campanha);
+
+        $campanhas = $request->campanha;
+
+        if(isset($campanhas)){
+
+            foreach($campanhas as $campanha){
+                $campanha_id = Campanha::where('nome', $campanha)->first()->id;
+                $personagem->campanhaRelationship()->attach($campanha_id);
+            }
+
+        }
 
         return redirect()->route('personagens.index');
     }
@@ -152,7 +162,18 @@ class PersonagemController extends Controller
 
         ]);
 
-        $personagem->campanha = $request->campanha;
+        $campanhas = $request->campanha;
+
+        $personagem->campanhaRelationship()->sync(null);
+
+        if(isset($campanhas)){
+
+            foreach($campanhas as $campanha){
+                $campanha_id = Campanha::where('nome', $campanha)->first()->id;
+                $personagem->campanhaRelationship()->attach($campanha_id);
+            }
+
+        }
 
         return redirect()->route('personagens.show', $personagem->id);
     }
