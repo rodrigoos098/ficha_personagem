@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+$titulo_fonte: "devinne_swashregular";
+$outros_fonte: "Constantia";
+
+$titulo_cor: rgb(104, 24, 100);
+$outros_cor: rgb(36, 3, 34);
+
+a {
+    font-family: $outros_fonte;
+    font-size: 16pt;
+    color: $outros_cor;
+}
+
+p {
+    font-family: $outros_fonte;
+    font-size: 16pt;
+    color: $outros_cor;
+}
+
+h1 {
+    font-family: $titulo_fonte;
+    font-size: 36pt;
+    color: $titulo_cor;
+}
+
+h2 {
+    font-family: $titulo_fonte;
+    font-size: 26pt;
+    color: $titulo_cor;
+}
+
+h3 {
+    font-family: $outros_fonte;
+    font-size: 20pt;
+    color: $outros_cor;
+}
+
+table {
+    max-width: 61%;
+}
+
+th,
+tr,
+td {
+    border: 3px solid black;
+    background-color: #ffffffee;
+}
