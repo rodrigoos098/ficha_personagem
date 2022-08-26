@@ -15,12 +15,12 @@ class RacaSeeder extends Seeder
     public function run()
     {
         DB::table('racas')->insert([
-            'nome' => 'humano',
+            'nome' => 'Humano',
             'visao_escuro' => null,
 
         ]);
         DB::table('racas')->insert([
-            'nome' => 'elfo',
+            'nome' => 'Elfo',
             'visao_escuro' => '18',
         ]);
     }

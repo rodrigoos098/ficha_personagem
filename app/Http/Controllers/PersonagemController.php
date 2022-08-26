@@ -48,11 +48,13 @@ class PersonagemController extends Controller
      */
     public function create()
     {
+        $tela = 1;
+
         $classes = $this->classes;
         $racas = $this->racas;
         //$item_unicos = $this->item_unicos;
         $campanhas = $this->campanhas;
-        return view('personagens.form', compact('classes', 'racas', 'campanhas'));
+        return view('personagens.form', compact('classes', 'racas', 'campanhas', 'tela'));
     }
 
     /**
@@ -65,6 +67,7 @@ class PersonagemController extends Controller
     {
         $personagem = $this->personagens->create([
             'nome' => $request->nome,
+            'xp' => $request->xp,
             'idade' => $request->idade,
             'altura' => $request->altura,
             'peso' => $request->peso,
@@ -80,7 +83,17 @@ class PersonagemController extends Controller
             ])->id,
 
         ]);
-        $personagem->campanhas = $request->campanhas;
+
+        $campanhas = $request->campanha;
+
+        if(isset($campanhas)){
+
+            foreach($campanhas as $campanha){
+                $campanha_id = Campanha::where('nome', $campanha)->first()->id;
+                $personagem->campanhaRelationship()->attach($campanha_id);
+            }
+
+        }
 
         return redirect()->route('personagens.index');
     }
@@ -94,13 +107,16 @@ class PersonagemController extends Controller
     public function show($id)
 
     {
+        $tela = 2;
+        $form = 'disabled';
+
         $personagem = $this->personagens->find($id);
 
         $classes = $this->classes;
         $racas = $this->racas;
         //$item_unicos = $this->item_unicos;
         $campanhas = $this->campanhas;
-        return view('personagens.form', compact('classes', 'racas', 'campanhas', 'personagem'));
+        return view('personagens.form', compact('classes', 'racas', 'campanhas', 'personagem', 'form', 'tela'));
     }
 
     /**
@@ -111,13 +127,15 @@ class PersonagemController extends Controller
      */
     public function edit($id)
     {
+        $tela = 3;
+
         $personagem = $this->personagens->find($id);
 
         $classes = $this->classes;
         $racas = $this->racas;
         //$item_unicos = $this->item_unicos;
         $campanhas = $this->campanhas;
-        return view('personagens.form', compact('classes', 'racas', 'campanhas', 'personagem'));
+        return view('personagens.form', compact('classes', 'racas', 'campanhas', 'personagem', 'tela'));
     }
 
     /**
@@ -129,14 +147,17 @@ class PersonagemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $personagem = $this->personagens->find($id)->update([
+        $personagem = $this->personagens->find($id);
+
+        $personagem->update([
             'nome' => $request->nome,
+            'xp' => $request->xp,
             'idade' => $request->idade,
             'altura' => $request->altura,
             'peso' => $request->peso,
             'classe_id' => $request->classe_id,
             'raca_id' => $request->raca_id,
-            'atributo_id' => $this->atributos->find($id)->update([
+            'atributo_id' => tap($this->atributos->find($personagem->atributo->id))->update([
                 'forca' => $request->forca,
                 'destreza' => $request->destreza,
                 'constituicao' => $request->constituicao,
@@ -146,9 +167,21 @@ class PersonagemController extends Controller
             ])->id,
 
         ]);
-        $personagem->campanhas = $request->campanhas;
 
-        return redirect()->route('personagens.form')->compact('classes', 'racas', 'campanhas', 'personagem');
+        $campanhas = $request->campanha;
+
+        $personagem->campanhaRelationship()->sync(null);
+
+        if(isset($campanhas)){
+
+            foreach($campanhas as $campanha){
+                $campanha_id = Campanha::where('nome', $campanha)->first()->id;
+                $personagem->campanhaRelationship()->attach($campanha_id);
+            }
+
+        }
+
+        return redirect()->route('personagens.show', $personagem->id);
     }
 
     /**
