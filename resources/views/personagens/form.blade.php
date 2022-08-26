@@ -15,14 +15,14 @@
     {{-- Imagem de background e fonte que não funcionou direto no sass --}}
     <style>
         body {
-            background-image: url('img/form_girl.jpg');
+            background-image: url('/img/form_girl.jpg');
             background-size: cover;
             background-repeat: no-repeat;
         }
         @font-face {
             font-family: 'devinne_swashregular';
-            src: url('font/devinneswash-qzd5-webfont.woff2') format('woff2'),
-                url('font/devinneswash-qzd5-webfont.woff') format('woff');
+            src: url('/font/devinneswash-qzd5-webfont.woff2') format('woff2'),
+                url('/font/devinneswash-qzd5-webfont.woff') format('woff');
             font-weight: normal;
             font-style: normal;
         }
