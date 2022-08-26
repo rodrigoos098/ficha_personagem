@@ -12,12 +12,12 @@ use App\Models\Atributo;
 
 class PersonagemController extends Controller
 {
- /**
-     * Global private declarations.
+    /**
+     * Declarações privadas globais.
      */
 
     /**
-     * Instantiate a new controller instance.
+     * Método construtor, para instanciar um objeto da classe controller.
      *
      * @return void
      */
@@ -31,7 +31,7 @@ class PersonagemController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Função para listar todos os personagens.
      *
      * @return \Illuminate\Http\Response
      */
@@ -42,13 +42,13 @@ class PersonagemController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Mostrar um formulário para criar um novo personagem.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        $tela = 1;
+        $tela = 'create';
 
         $classes = $this->classes;
         $racas = $this->racas;
@@ -58,7 +58,7 @@ class PersonagemController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Pega os dados do formulário da função create, e armazena no banco de dados.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -99,7 +99,7 @@ class PersonagemController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Mostrar os dados de um personagem específico.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -107,7 +107,7 @@ class PersonagemController extends Controller
     public function show($id)
 
     {
-        $tela = 2;
+        $tela = 'show';
         $form = 'disabled';
 
         $personagem = $this->personagens->find($id);
@@ -120,14 +120,14 @@ class PersonagemController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Mostrar um formulário para editar os dados de um personagem específico.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $tela = 3;
+        $tela = 'edit';
 
         $personagem = $this->personagens->find($id);
 
@@ -139,7 +139,7 @@ class PersonagemController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Pega os dados do formulário da função edit, e armazena no banco de dados.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -185,7 +185,7 @@ class PersonagemController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Deleta um personagem do banco de dados.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
