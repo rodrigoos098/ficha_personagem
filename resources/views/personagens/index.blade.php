@@ -12,8 +12,9 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+    {{-- Imagem de background e fonte que não funcionou direto no sass --}}
     <style>
-        body {
+      body {
             background-image: url('img/index_girl.jpg');
             background-size: cover;
             background-repeat: no-repeat;
@@ -29,15 +30,16 @@
 </head>
 
 <body>
-
+    {{-- Titulo --}}
     <br>
     <h2>&emsp;Lista de Personagens:</h2><br>
+    {{-- Botão de criar personagem --}}
     <div class="container-fluid">
         <a type="button" class="btn btn-success" href="{{ route('personagens.create') }}">Criar personagem</a>
     </div><br>
 
     <br />
-
+    {{-- Tabela de listar personagens  --}}
     <div class="container-fluid">
         <table class="table">
             <thead>
@@ -56,6 +58,7 @@
                         <td>{{ $personagem->xp }}</td>
                         <td>{{ $personagem->classe->nome }}</td>
                         <td>{{ $personagem->raca->nome }}</td>
+                        {{-- Botões de Editar e Visualizar  --}}
                         <td><a type="button" class="btn btn-primary"
                                 href="{{ route('personagens.show', $personagem->id) }}">Visualizar</a>
                             <a type="button" class="btn btn-warning"

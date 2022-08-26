@@ -12,6 +12,7 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+    {{-- Imagem de background e fonte que não funcionou direto no sass --}}
     <style>
         body {
             background-image: url('img/homepage_girl.jpg');
@@ -30,13 +31,16 @@
 </head>
 
 <body>
+    {{-- Titulo --}}
     <br>
     <h1>&emsp;Fichas de Personagens &#127993;</h1>
-    {{-- <img src="img/bard_female.jpg" width=45% alt="Uma Barda tocando em uma taverna"> --}}
     <br />
+    {{-- Subtitulo --}}
     <h3>&ensp;Para onde deseja ir, jovem aventureiro?</h3>
+    {{-- Botão de listar personagens --}}
     &ensp;<a type="button" class="btn btn-primary" href="{{ route('personagens.index') }}">Listar personagens criados</a>
     <br /><br />
+    {{-- Botão de criar personagem --}}
     &ensp;<a type="button" class="btn btn-success" href="{{ route('personagens.create') }}">Criar personagem</a>
 </body>
 
