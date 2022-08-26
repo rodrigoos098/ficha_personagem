@@ -10,7 +10,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
 
     <style>
         body {
@@ -29,8 +29,16 @@
 </head>
 
 <body>
-    <br>
-    <h2>&emsp;Criação de Personagem</h2><br />
+    @if ($tela == 1)
+        <br>
+        <h2>&emsp;Crie seu personagem:</h2><br />
+    @elseif ($tela == 2)
+        <br>
+        <h2>&emsp;Seu personagem:</h2><br />
+    @else
+        <br>
+        <h2>&emsp;Edite seu personagem:</h2><br />
+    @endif
 
     @if (isset($personagem))
         {!! Form::open(['route' => array('personagens.update', $personagem->id), 'method' => 'PUT', 'name' => 'form'])!!}

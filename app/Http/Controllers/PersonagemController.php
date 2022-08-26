@@ -48,11 +48,13 @@ class PersonagemController extends Controller
      */
     public function create()
     {
+        $tela = 1;
+
         $classes = $this->classes;
         $racas = $this->racas;
         //$item_unicos = $this->item_unicos;
         $campanhas = $this->campanhas;
-        return view('personagens.form', compact('classes', 'racas', 'campanhas'));
+        return view('personagens.form', compact('classes', 'racas', 'campanhas', 'tela'));
     }
 
     /**
@@ -105,14 +107,16 @@ class PersonagemController extends Controller
     public function show($id)
 
     {
-        $personagem = $this->personagens->find($id);
+        $tela = 2;
         $form = 'disabled';
+
+        $personagem = $this->personagens->find($id);
 
         $classes = $this->classes;
         $racas = $this->racas;
         //$item_unicos = $this->item_unicos;
         $campanhas = $this->campanhas;
-        return view('personagens.form', compact('classes', 'racas', 'campanhas', 'personagem', 'form'));
+        return view('personagens.form', compact('classes', 'racas', 'campanhas', 'personagem', 'form', 'tela'));
     }
 
     /**
@@ -123,13 +127,15 @@ class PersonagemController extends Controller
      */
     public function edit($id)
     {
+        $tela = 3;
+
         $personagem = $this->personagens->find($id);
 
         $classes = $this->classes;
         $racas = $this->racas;
         //$item_unicos = $this->item_unicos;
         $campanhas = $this->campanhas;
-        return view('personagens.form', compact('classes', 'racas', 'campanhas', 'personagem'));
+        return view('personagens.form', compact('classes', 'racas', 'campanhas', 'personagem', 'tela'));
     }
 
     /**
