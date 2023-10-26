@@ -17,16 +17,17 @@ use App\Http\Controllers\PersonagemController;
 Route::get('/index', [ PersonagemController::class, 'index'])->name('personagens.index'); // 'name of function'
 
 Route::get('/create', [ PersonagemController::class, 'create'])->name('personagens.create'); // 'name of function'
+); // 'name of function'
 
-Route::post('/tercio', [ PersonagemController::class, 'store'])->name('personagens.store'); // 'name of function'
+asdasfsdggd
 
 Route::get('/show/{id}', [ PersonagemController::class, 'show'])->name('personagens.show'); // 'name of function'
 
 Route::get('/edit/{id}', [ PersonagemController::class, 'edit'])->name('personagens.edit'); // 'name of function'
-
+sdafsfgsdfgh
+asdfasdgsg
 Route::put('/edit/{id}', [ PersonagemController::class, 'update'])->name('personagens.update'); // 'name of function'
-
-Route::delete('/destroy/{id}', [ PersonagemController::class, 'destroy'])->name('personagens.destroy'); // 'name of function'
+emController::class, 'destroy'])->name('personagens.destroy'); // 'name of function'
 
 Route::get('/', function () {
     return view('homepage');
