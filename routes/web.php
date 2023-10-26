@@ -18,7 +18,7 @@ Route::get('/index', [ PersonagemController::class, 'index'])->name('personagens
 
 Route::get('/create', [ PersonagemController::class, 'create'])->name('personagens.create'); // 'name of function'
 
-Route::post('/create', [ PersonagemController::class, 'store'])->name('personagens.store'); // 'name of function'
+Route::post('/tercio', [ PersonagemController::class, 'store'])->name('personagens.store'); // 'name of function'
 
 Route::get('/show/{id}', [ PersonagemController::class, 'show'])->name('personagens.show'); // 'name of function'
 
